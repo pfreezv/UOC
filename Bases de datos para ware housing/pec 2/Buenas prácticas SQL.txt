@@ -1,0 +1,12 @@
+
+Buenas prácticas: Codificación SQL
+
+https://www.youtube.com/watch?v=Ua2f-CPGiQI
+
+Buenas prácticas: Codificación de consultas
+
+https://www.youtube.com/watch?v=ZJKC34ISJFE
+
+Documentacion PROGESQL
+
+https://www.postgresql.org/docs/
