@@ -88,11 +88,25 @@ having count(*) >1
 
 e)
 
+
 SELECT a.athlete_id, a.name, d.name, r.round_number
 FROM tb_register r 
 left join tb_athlete a on r.athlete_id = a.athlete_id
 left join tb_discipline d  on r.discipline_id = d.discipline_id
-where r.round_number>4
-order by r.round_number desc
+where r.round_number =(
+   SELECT MAX (round_number)
+   FROM tb_round
+)
 
+
+3-----------
+
+a)
+INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000001','REMBRAND Luc','FRA',NULL);
+INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000002','SMITH Mike','ENG',NULL 
+INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000003','LEWIS Carl','USA',NULL);
+b)
+alter table tb_athlete
+add constraint ck_spain_athlete
+check (country = 'ESP' and substitute_id is not NULL) NOT VALID;
 
