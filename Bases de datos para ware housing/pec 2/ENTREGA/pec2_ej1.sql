@@ -99,14 +99,5 @@ where r.round_number =(
 )
 
 
-3-----------
 
-a)
-INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000001','REMBRAND Luc','FRA',NULL);
-INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000002','SMITH Mike','ENG',NULL 
-INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000003','LEWIS Carl','USA',NULL);
-b)
-alter table tb_athlete
-add constraint ck_spain_athlete
-check (country = 'ESP' and substitute_id is not NULL) NOT VALID;
 
