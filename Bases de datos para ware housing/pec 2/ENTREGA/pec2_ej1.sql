@@ -61,6 +61,17 @@ CREATE TABLE tb_register
 
 
 ejercicio 3
+a)
+SELECT 
+	athlete_id,
+	name,
+	country,
+	substitute_id
+FROM 
+	tb_athlete
+WHERE 
+	country LIKE 'ESP' AND
+	name LIKE 'PE%'	
 
 b)
 
