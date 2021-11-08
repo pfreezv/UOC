@@ -1,4 +1,5 @@
 EJERCICIO 4
 A)
-grouping Sets
-permite obtener el equivalente a a de los resultados de ejecutar groupby para las variables q se requieran
+grouping Sets^
+
+permite "unir" los resultados de dejecutar group by para cada columna solicitada

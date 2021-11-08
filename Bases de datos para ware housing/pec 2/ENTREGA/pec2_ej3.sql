@@ -3,22 +3,11 @@
 --A)
 
 INSERT INTO 
-	olimpic.tb_athlete
-	(
-		athlete_id, name, 
-		country, 
-		substitute_id
-	) 
+	olimpic.tb_athlete (athlete_id, name, country,substitute_id) 
 VALUES
-(
-	'0000001',
-	'REMBRAND Luc',
-	'FRA',
-	NULL
-);
-
-INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000002','SMITH Mike','ENG',NULL 
-INSERT INTO olimpic.tb_athlete(athlete_id, name, country, substitute_id) VALUES('0000003','LEWIS Carl','USA',NULL);
+	('0000001','REMBRAND Luc','FRA',NULL),
+	('0000002','SMITH Mike','ENG',NULL),
+	('0000003','LEWIS Carl','USA',NULL);
 
 --B)
 
@@ -27,25 +16,16 @@ ALTER TABLE
 ADD CONSTRAINT
 	ck_spain_athlete
 CHECK
-(
-	country = 'ESP' and 
-	substitute_id is not NULL
-) 
+	(country = 'ESP' and substitute_id is not NULL) 
 NOT VALID;
 
 --C)
 
 CREATE VIEW
 	olimpic.exercise33
-		(
-			athlete_id,
-			name,
-			country,
-			substitute_id
-		) 
+		(athlete_id,name,country,substitute_id) 
 	AS
-		(
-			SELECT 
+		(SELECT 
 				athlete_id,
 				name,
 				country,
@@ -70,7 +50,11 @@ ADD COLUMN
 --E)
 
 CREATE USER registerer WITH PASSWORD '1234';
-GRANT USAGE ON SCHEMA olimpic TO registerer
+GRANT USAGE 
+ON SCHEMA 
+	olimpic 
+TO 
+	registerer
 GRANT SELECT, INSERT, UPDATE, DELETE ON tb_register IN SCHEMA olimpic TO registerer
 GRANT SELECT ON tb_athlete IN SCHEMA olimpic TO registerer
 
