@@ -57,3 +57,20 @@ CREATE VIEW
 				name LIKE 'PE%'	)
 		)
 	WITH CHECK OPTION;
+
+--D)
+
+ALTER TABLE 
+	tb_athlete
+ADD COLUMN 
+	data_add 
+	DATE NOT NULL 
+	DEFAULT CURRENT_DATE 
+
+--E)
+
+CREATE USER registerer WITH PASSWORD '1234';
+GRANT USAGE ON SCHEMA olimpic TO registerer
+GRANT SELECT, INSERT, UPDATE, DELETE ON tb_register IN SCHEMA olimpic TO registerer
+GRANT SELECT ON tb_athlete IN SCHEMA olimpic TO registerer
+
