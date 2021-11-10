@@ -49,12 +49,27 @@ ADD COLUMN
 
 --E)
 
-CREATE USER registerer WITH PASSWORD '1234';
+CREATE ROLE registerer WITH
+	LOGIN
+	NOSUPERUSER
+	NOCREATEDB
+	NOCREATEROLE
+	PASSWORD 1234';
 GRANT USAGE 
 ON SCHEMA 
 	olimpic 
 TO 
 	registerer
-GRANT SELECT, INSERT, UPDATE, DELETE ON tb_register IN SCHEMA olimpic TO registerer
-GRANT SELECT ON tb_athlete IN SCHEMA olimpic TO registerer
 
+GRANT SELECT, INSERT, UPDATE, DELETE ON 
+	tb_register 
+IN SCHEMA 
+	olimpic 
+TO 
+	registerer
+GRANT SELECT ON 
+	tb_athlete 
+IN SCHEMA 
+	olimpic 
+TO 
+	registerer

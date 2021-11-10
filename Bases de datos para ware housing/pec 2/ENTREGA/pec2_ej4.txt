@@ -1,5 +1,0 @@
-EJERCICIO 4
-A)
-grouping Sets^
-
-permite "unir" los resultados de dejecutar group by para cada columna solicitada
