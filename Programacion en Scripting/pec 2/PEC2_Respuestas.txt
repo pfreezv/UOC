@@ -1,0 +1,39 @@
+-----------
+EJERCICIO 2
+-----------
+Respuestas y capturas.
+El fichero descargado se denomina phpOJxGL9.csv
+A
+ls -lh ./phpOJxGL9.csv 
+du -h ./phpOJxGL9.csv
+B
+wc -l phpOJxGL9.csv
+C
+head -7 phpOJxGL9.csv
+D
+head -220 phpOJxGL9.csv | tail -21
+E
+cut -d',' -f2 phpOJxGL9.csv
+F
+cut -d"," -f3 phpOJxGL9.csv| sort -g | uniq
+
+G
+file -i ~/liver/*
+
+-----------
+EJERCICIO 3
+-----------
+Respuestas y capturas.
+A
+cat phpOJxGL9.csv | cut -d, -f9 | sort | uniq -c | sort -k 1
+B
+script3.sh
+
+-----------
+EJERCICIO 4
+-----------
+Respuestas y captura PEC2_4_1.png
+A
+jq ".countries[] | .countryId" parties.json
+B
+jq '.countries[] | select(.countryId=="ES") | .candidates[] | .candidateAcronym' parties.json
