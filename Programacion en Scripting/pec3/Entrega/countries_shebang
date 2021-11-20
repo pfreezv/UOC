@@ -1,0 +1,4 @@
+#!/bin/awk -f
+
+BEGIN {print  "BEGIN. pais=",pais}
+END {print "END. pais=",pais}
