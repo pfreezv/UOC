@@ -1,1 +1,14 @@
-Se intenta realizar el filtrado de cada linea segun las diferen
+A) La expresion intenta filtrar lineas con datos separados por comas. 
+
+	^ el delimitador que se filtre la linea que inicie con caracteres numericos del 0 al 9 que pueden repetirse muchas veces
+	,
+	el caracter M o F pudiendo ir seguidos ambos de un caracter opcional
+	,
+	caracteres numericos del 0 al 9 que pueden repetirse muchas veces
+	,
+	cadena de caracteres en minuscula y mayuscula que pueden repetirse uchas veces
+	,
+	$ que indica que posterior al separador, la linea debe terminar en ningun caracter 
+
+
+B) Es un tipo de expresion regular ERE , podemos confirmalo por la sintaxis, vemos que el caracter "?" va solo y no cacompañado de un "\" con lo hace en las expresiones BRE

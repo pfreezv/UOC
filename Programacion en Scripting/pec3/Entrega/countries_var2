@@ -1,2 +1,0 @@
-$0 ~ country_name {country=country+1} # Si en la línea aparece el nombre del país
-END {print country_name,"has appeared",country,"times"}

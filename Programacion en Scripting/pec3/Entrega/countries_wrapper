@@ -1,1 +1,0 @@
-awk -f countries_var2 "country=$1" "country_name=$2" sales.csv

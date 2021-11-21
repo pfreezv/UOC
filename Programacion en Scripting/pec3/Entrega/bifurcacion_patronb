@@ -1,2 +1,0 @@
-/France/ {print "Linea" NR,"contiene France"}
-/Spain/ {print "Linea" NR, "contiene Spain"}
