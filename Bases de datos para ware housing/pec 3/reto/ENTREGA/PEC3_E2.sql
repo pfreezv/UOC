@@ -1,4 +1,3 @@
-
 --2A
 
 CREATE DOMAIN email_type AS TEXT 
@@ -9,7 +8,6 @@ ALTER TABLE tb_sponsor
 
 ALTER TABLE tb_collaborator
 	ADD COLUMN email email_type;
-
 
 --2B
 CREATE TABLE olympic.tb_athletes_info_log(
@@ -24,9 +22,7 @@ CREATE TABLE olympic.tb_athletes_info_log(
 	CONSTRAINT pk_athlete_info_log PRIMARY KEY (athlete_id,discipline_id,round_number),
 	CONSTRAINT fk_athlete_info_log FOREIGN KEY (athlete_id,discipline_id,round_number) REFERENCES olympic.tb_register (athlete_id,discipline_id,round_number) 
 
-)
-
-
+);
 
 --2C
 ALTER TABLE olympic.tb_athletes_info_log
@@ -47,8 +43,6 @@ DECLARE
 	discipline_2 varchar (50);
 	marck_athlete varchar (12);
 	fecha DATE;
-	
-	
 	
 BEGIN
 		name_2 = (
@@ -104,7 +98,6 @@ CREATE TRIGGER tg_athletes_info
 AFTER INSERT OR DELETE OR UPDATE ON tb_register
 FOR EACH ROW
 EXECUTE PROCEDURE fn_athletes_info();
-
 
 --2D
 CREATE OR REPLACE FUNCTION fn_get_info_by_sponsor(select_date DATE ,sponsor character varying)

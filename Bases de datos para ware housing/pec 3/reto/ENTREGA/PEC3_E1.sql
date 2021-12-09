@@ -2,7 +2,7 @@
 SET SEARCH_PATH TO olympic;
 
 ALTER TABLE tb_register
-	ALTER COLUMN register_ts SET DATA TYPE timestamp;
+	ALTER COLUMN register_date SET DATA TYPE timestamp;
 	
 ALTER TABLE tb_register
 	RENAME COLUMN register_date TO register_ts;
@@ -40,8 +40,3 @@ CREATE TRIGGER tg_register_updated
 BEFORE UPDATE ON tb_register
 FOR EACH ROW
 EXECUTE PROCEDURE fn_register_updated();
-
-
-
-
-
