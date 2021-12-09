@@ -1,18 +1,17 @@
 
+--2A
 
-2.a
 CREATE DOMAIN email_type AS TEXT 
   CHECK ( value ~ '^[a-zA-Z0-9.!#$%&''*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$' );
 
 ALTER TABLE tb_sponsor
 	ADD COLUMN email email_type;
 
-
-ALTER TABLE tb_colLaborator
+ALTER TABLE tb_collaborator
 	ADD COLUMN email email_type;
 
 
-2b
+--2B
 CREATE TABLE olympic.tb_athletes_info_log(
 	athlete_id CHAR (7) NOT NULL,
 	discipline_id INT NOT NULL,
@@ -28,9 +27,8 @@ CREATE TABLE olympic.tb_athletes_info_log(
 )
 
 
-2c
 
-
+--2C
 ALTER TABLE olympic.tb_athletes_info_log
 drop CONSTRAINT fk_athlete_info_log;
 
@@ -107,9 +105,8 @@ AFTER INSERT OR DELETE OR UPDATE ON tb_register
 FOR EACH ROW
 EXECUTE PROCEDURE fn_athletes_info();
 
-2d
 
-
+--2D
 CREATE OR REPLACE FUNCTION fn_get_info_by_sponsor(select_date DATE ,sponsor character varying)
 RETURNS TABLE (
 	sponsor_email olympic.email_type,

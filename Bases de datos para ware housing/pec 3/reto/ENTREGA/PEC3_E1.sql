@@ -1,4 +1,4 @@
-1
+--1.A)
 SET SEARCH_PATH TO olympic;
 
 ALTER TABLE tb_register
@@ -10,7 +10,7 @@ ALTER TABLE tb_register
 ALTER TABLE tb_register
 	ADD COLUMN register_updated timestamp;
 
-2
+--1.B
 CREATE OR REPLACE FUNCTION fn_register_inserted()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -26,7 +26,7 @@ BEFORE INSERT ON tb_register
 FOR EACH ROW
 EXECUTE PROCEDURE fn_register_inserted();
 
-3
+--1.C
 CREATE FUNCTION fn_register_updated()
 RETURNS TRIGGER AS $$
 BEGIN
