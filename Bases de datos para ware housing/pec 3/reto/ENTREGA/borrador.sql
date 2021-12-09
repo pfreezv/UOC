@@ -151,3 +151,21 @@ LANGUAGE plpgsql;
 -- INSERT INTO olympic.tb_register(athlete_id, discipline_id, round_number, register_date, register_position, register_time, register_measure) VALUES('1467945', 14, 2, '2021-06-13', 0, '00:12:17',NULL);
 -- INSERT INTO olympic.tb_register(athlete_id, discipline_id, round_number, register_date, register_position, register_time, register_measure) VALUES('1328204', 13, 2, '2021-06-11', 9, NULL,71.14);
 
+
+
+
+----------
+
+-- set search_path to  olympic;
+-- SELECT NAME 
+-- FROM tb_athlete a
+-- WHERE a.athlete_id = b.athlete_id
+
+
+INSERT INTO olympic.tb_register(athlete_id, discipline_id, round_number, register_ts, register_position, register_time, register_measure) 
+VALUES('1328204', 6, 1, '2021-06-11', 4, '02:02:01',null);
+
+-- DELETE FROM  tb_athletes_info_log
+-- where athlete_id = '1328204' and discipline_id = 11 and round_number = 1;
+
+select * from tb_athletes_info_log;

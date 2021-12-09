@@ -41,7 +41,6 @@ ADD CONSTRAINT fk_athlete_info_log
    ON DELETE CASCADE ON UPDATE CASCADE;
 
 
-
 CREATE OR REPLACE FUNCTION fn_athletes_info()
 RETURNS TRIGGER AS $$
 DECLARE 
@@ -49,7 +48,9 @@ DECLARE
 	name_2 varchar (50);
 	discipline_2 varchar (50);
 	marck_athlete varchar (12);
-	fecha date;
+	fecha DATE;
+	
+	
 	
 BEGIN
 		name_2 = (
@@ -100,9 +101,38 @@ $$
 LANGUAGE plpgsql;
 
 
+
 CREATE TRIGGER tg_athletes_info
 AFTER INSERT OR DELETE OR UPDATE ON tb_register
 FOR EACH ROW
 EXECUTE PROCEDURE fn_athletes_info();
 
 2d
+
+
+CREATE OR REPLACE FUNCTION fn_get_info_by_sponsor(select_date DATE ,sponsor character varying)
+RETURNS TABLE (
+	sponsor_email olympic.email_type,
+	sponsor_name VARCHAR (50),
+	athlete_n VARCHAR (50),
+	discipline_n VARCHAR (50),
+	round_n INT,
+	athlete_ma VARCHAR (12),
+	register_p INT,
+	information_d DATE
+) 
+
+AS $$
+
+BEGIN
+RETURN QUERY
+		SELECT c.email , c.name , a.athlete_name, a.discipline_name, a.round_number,a.mark,a.rating,a.info_log_dt 
+		FROM olympic.tb_athletes_info_log a 
+		LEFT JOIN olympic.tb_finance b ON a.athlete_id = b.athlete_id
+		LEFT JOIN olympic.tb_sponsor c ON b.sponsor_name = c.name
+		WHERE sponsor = c.name 
+		AND a.info_log_dt = select_date;
+		
+		
+END; $$
+LANGUAGE plpgsql
