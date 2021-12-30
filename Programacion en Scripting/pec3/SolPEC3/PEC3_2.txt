@@ -1,0 +1,4 @@
+a) Realiza una búsqueda de todos aquellos registros válidos descartando los que tengan un sexo indefinido (O) Y que sólo sepan hablar la lengua nativa.
+ 
+ 
+b) ¿Es una expresión regular ERE porque los símbolos especiales como ?, | no van precedidos del carácter de escape y su aplicación no es literal, es decir, funcionan como símbolos especiales
